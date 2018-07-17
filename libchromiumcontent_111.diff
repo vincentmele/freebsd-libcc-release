@@ -175,7 +175,7 @@ index 58161ec..0f12ab2 100755
  elif IS_MIPS64EL_HOST:
    NINJA = os.path.join(VENDOR_DIR, 'depot_tools', 'ninja-build')
 -
-+elif sys.platform.startswith('freebsd'):
++elif sys.platform.startswith('openbsd'):
 +  NINJA = 'ninja'
 +  
  COPY_PY = os.path.join(TOOLS_DIR, 'copy.py')
@@ -185,9 +185,9 @@ index 58161ec..0f12ab2 100755
    'cygwin': 'win32',
    'darwin': 'darwin',
    'linux2': 'linux',
-+  'freebsd10': 'linux',
++  'openbsd62': 'linux',
++  'openbsd62': 'linux',
 +  'freebsd11': 'linux',
-+  'freebsd12': 'linux',
    'win32': 'win32',
  }[sys.platform]
  
@@ -219,9 +219,9 @@ index b05b4b0..10c066b 100755
      "cygwin": "win",
      "darwin": "mac",
      "linux2": "linux",
-+    "freebsd10": "bsd",
++    "openbsd62": "bsd",
++    "openbsd63": "bsd",
 +    "freebsd11": "bsd",
-+    "freebsd12": "bsd",
      "win32": "win",
    }.get(sys.platform)
 
@@ -266,7 +266,7 @@ index b05b4b0..10c066b 100755
    elif platform == 'darwin':
      relative_path = ['buildtools', 'mac', 'gn']
 -
-+  elif sys.platform.startswith('freebsd'):
++  elif sys.platform.startswith('openbsd'):
 +    relative_path = ['out', 'Release', 'gn']
 +    
    assert relative_path is not None, "Platform '{}' is not supported".format(platform)

@@ -92,7 +92,7 @@
 @@ -45,7 +45,7 @@
    _get_timezone(&timezone);
  #endif
- #ifdef __FreeBSD__
+ #ifdef __OpenBSD__
 -  struct tm *lt;
 +  struct tm *lt = localtime(&t);
    return (double)(-(lt->tm_gmtoff * 1000));
